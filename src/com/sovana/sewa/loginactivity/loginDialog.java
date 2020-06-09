@@ -9,7 +9,6 @@ import com.sovana.sewa.connection.Session;
 import com.sovana.sewa.mainactivity.Main;
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
