@@ -50,7 +50,6 @@ public class loginDialog extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SewaTerop");
-        setPreferredSize(new java.awt.Dimension(390, 385));
 
         loginpage.setBackground(new java.awt.Color(255, 255, 255));
 
