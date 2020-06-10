@@ -339,7 +339,7 @@ public class Main extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sovana/sewa/images/baseline_assignment_white_24dp.png"))); // NOI18N
-        jButton4.setText("Pesanan baru");
+        jButton4.setText("Sewaan baru");
         jButton4.setBorder(null);
         jButton4.setBorderPainted(false);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

@@ -478,7 +478,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/sovana/sewa/images/baseline_assignment_white_24dp.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Pesanan baru"/>
+            <Property name="text" type="java.lang.String" value="Sewaan baru"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
