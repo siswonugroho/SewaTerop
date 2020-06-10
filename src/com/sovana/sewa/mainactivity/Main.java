@@ -1547,10 +1547,10 @@ public class Main extends javax.swing.JFrame {
                     + String.format("\t%-15s: %-15s%n", "Alamat", tabelRiwayat.getValueAt(baris, 7))
                     + String.format("\t%-15s: %-15s%n", "Telp penyewa", tabelRiwayat.getValueAt(baris, 8))
                     + "\t------------------------------------------\n"
-                    + String.format("\t%-18s: Rp.%,d%-17s%n", "Harga satuan", Integer.valueOf((String) tabelRiwayat.getValueAt(baris, 6)), ",-")
-                    + String.format("\t%-18s: Rp.%,d%-17s%n", "Total biaya", Integer.valueOf((String) tabelRiwayat.getValueAt(baris, 9)), ",-")
-                    + String.format("\t%-18s: Rp.%,d%-17s%n", "Jumlah bayar", Integer.valueOf((String) tabelRiwayat.getValueAt(baris, 10)), ",-")
-                    + String.format("\t%-18s: Rp.%,d%-17s%n%n", "Kembalian/kurang*", Integer.valueOf((String) tabelRiwayat.getValueAt(baris, 11)), ",-")
+                    + String.format("\t%-18s: Rp%,d%-17s%n", "Harga satuan", Integer.valueOf((String) tabelRiwayat.getValueAt(baris, 6)), ",-")
+                    + String.format("\t%-18s: Rp%,d%-17s%n", "Total biaya", Integer.valueOf((String) tabelRiwayat.getValueAt(baris, 9)), ",-")
+                    + String.format("\t%-18s: Rp%,d%-17s%n", "Jumlah bayar", Integer.valueOf((String) tabelRiwayat.getValueAt(baris, 10)), ",-")
+                    + String.format("\t%-18s: Rp%,d%-17s%n%n", "Kembalian/kurang*", Integer.valueOf((String) tabelRiwayat.getValueAt(baris, 11)), ",-")
                     + String.format("\t%-18s\t%n", "*Coret yang tidak perlu")
             );
             pvd.setVisible(true);
