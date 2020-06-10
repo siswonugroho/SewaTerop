@@ -77,7 +77,7 @@ public class loginDialog extends javax.swing.JFrame {
             }
         });
 
-        btnLogin.setBackground(new java.awt.Color(153, 0, 153));
+        btnLogin.setBackground(new java.awt.Color(76, 133, 228));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
