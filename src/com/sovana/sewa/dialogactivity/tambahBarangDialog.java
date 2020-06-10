@@ -56,31 +56,31 @@ public class tambahBarangDialog extends javax.swing.JDialog {
 
         addSewaMain.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel10.setText("Tambah barang baru");
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
 
         idTextBarang.setEditable(false);
         idTextBarang.setPreferredSize(new java.awt.Dimension(105, 24));
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel12.setText("ID barang");
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel13.setText("Nama barang");
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel14.setText("Status");
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
-        jButton9.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton9.setText("Batal");
+        jButton9.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
 
-        btnTambah.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnTambah.setText("Tambah");
+        btnTambah.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTambahActionPerformed(evt);
@@ -114,8 +114,10 @@ public class tambahBarangDialog extends javax.swing.JDialog {
             }
         });
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel15.setText("Harga (Rp)");
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        hargaText.setModel(new javax.swing.SpinnerNumberModel(0, null, null, 100));
 
         javax.swing.GroupLayout addSewaMainLayout = new javax.swing.GroupLayout(addSewaMain);
         addSewaMain.setLayout(addSewaMainLayout);
