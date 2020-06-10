@@ -317,7 +317,7 @@
             <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tglSewaMouseReleased"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="tglSewa.getComponentToggleCalendarButton().setIcon(new ImageIcon(getClass().getResource(&quot;/com/sovana/sewa/images/Calendar-icon.png&quot;)));&#xd;&#xa;tglSewa.getComponentToggleCalendarButton().setText(&quot;&quot;);&#xd;&#xa;tglSewa.setLocale(new Locale(&quot;id&quot;, &quot;ID&quot;));  "/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="tglSewa.getComponentToggleCalendarButton().setIcon(new ImageIcon(getClass().getResource(&quot;/com/sovana/sewa/images/Calendar-icon.png&quot;)));&#xd;&#xa;tglSewa.getComponentToggleCalendarButton().setText(&quot;&quot;);&#xd;&#xa;tglSewa.setLocale(new Locale(&quot;id&quot;, &quot;ID&quot;)); &#xd;&#xa;tglSewa.setDateToToday();"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">

@@ -156,12 +156,13 @@ public class tambahSewaDialog extends javax.swing.JDialog {
             }
         });
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel15.setText("Tanggal sewa");
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         tglSewa.getComponentToggleCalendarButton().setIcon(new ImageIcon(getClass().getResource("/com/sovana/sewa/images/Calendar-icon.png")));
         tglSewa.getComponentToggleCalendarButton().setText("");
-        tglSewa.setLocale(new Locale("id", "ID"));
+        tglSewa.setLocale(new Locale("id", "ID")); 
+        tglSewa.setDateToToday();
 
         javax.swing.GroupLayout addSewaMainLayout = new javax.swing.GroupLayout(addSewaMain);
         addSewaMain.setLayout(addSewaMainLayout);
