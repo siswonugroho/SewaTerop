@@ -47,18 +47,15 @@ public class loginDialog extends javax.swing.JFrame {
         passField = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
         errorText = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SewaTerop");
-        setPreferredSize(new java.awt.Dimension(390, 400));
-        setSize(new java.awt.Dimension(390, 400));
+        setPreferredSize(new java.awt.Dimension(390, 385));
 
         loginpage.setBackground(new java.awt.Color(255, 255, 255));
-        loginpage.setPreferredSize(new java.awt.Dimension(390, 400));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
-        jLabel1.setText("Login");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setText("Log in untuk melanjutkan");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel2.setText("Username");
@@ -80,7 +77,7 @@ public class loginDialog extends javax.swing.JFrame {
         btnLogin.setBackground(new java.awt.Color(153, 0, 153));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin.setText("Login");
+        btnLogin.setText("Log in");
         btnLogin.setBorderPainted(false);
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -92,15 +89,12 @@ public class loginDialog extends javax.swing.JFrame {
         errorText.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         errorText.setForeground(new java.awt.Color(255, 0, 51));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel4.setText("untuk melanjutkan ke SewaTerop");
-
         javax.swing.GroupLayout loginpageLayout = new javax.swing.GroupLayout(loginpage);
         loginpage.setLayout(loginpageLayout);
         loginpageLayout.setHorizontalGroup(
             loginpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginpageLayout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(loginpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel2)
@@ -108,19 +102,16 @@ public class loginDialog extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addComponent(userField)
                         .addComponent(passField)
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(errorText))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         loginpageLayout.setVerticalGroup(
             loginpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginpageLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(45, 45, 45)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addGap(33, 33, 33)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,9 +121,9 @@ public class loginDialog extends javax.swing.JFrame {
                 .addComponent(passField, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(errorText)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -145,9 +136,9 @@ public class loginDialog extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 406, Short.MAX_VALUE)
+            .addGap(0, 385, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(loginpage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE))
+                .addComponent(loginpage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -155,43 +146,45 @@ public class loginDialog extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void goLogin() {
-        btnLogin.setText("Sedang login...");
-        EventQueue.invokeLater(() -> {
-            try {
-                String username = null, level = null;
-                String passValue = String.valueOf(passField.getPassword());
-                String encodePass = Base64.getEncoder().encodeToString(passValue.getBytes());
-                String sql = "select * from admin where username = ? and password = ?";
-                Connection conn = (Connection) com.sovana.sewa.connection.Connect.configDB();
 
-                PreparedStatement stm = conn.prepareStatement(sql);
-                stm.setString(1, userField.getText());
-                stm.setString(2, encodePass);
-                ResultSet res = stm.executeQuery();
+        try {
+            String username = null, level = null;
+            String passValue = String.valueOf(passField.getPassword());
+            String encodePass = Base64.getEncoder().encodeToString(passValue.getBytes());
+            String sql = "select * from admin where username = ? and password = ?";
+            Connection conn = (Connection) com.sovana.sewa.connection.Connect.configDB();
 
-                while (res.next()) {
-                    username = res.getString("username");
-                    level = res.getString("accesslevel");
-                }
-                res.last();
-                
-                if (res.getRow() == 1) {
-                    Session.setUsername(username);
-                    Session.setLevel(level);
+            PreparedStatement stm = conn.prepareStatement(sql);
+            stm.setString(1, userField.getText());
+            stm.setString(2, encodePass);
+            ResultSet res = stm.executeQuery();
+
+            while (res.next()) {
+                username = res.getString("username");
+                level = res.getString("accesslevel");
+            }
+            res.last();
+            btnLogin.setText("Sedang log in...");
+            btnLogin.setBackground(Color.DARK_GRAY);
+            if (res.getRow() == 1) {
+                Session.setUsername(username);
+                Session.setLevel(level);
+                EventQueue.invokeLater(() -> {
                     new Main().setVisible(true);
                     dispose();
-                } else {
-                    btnLogin.setText("Login");
-                    LineBorder redborder = new LineBorder(Color.red, 2, true);
-                    userField.setBorder(redborder);
-                    passField.setBorder(redborder);
-                    errorText.setText("Username atau password salah. Coba lagi");
-                }
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(this, e.getMessage(), "Error", 0);
-                btnLogin.setText("Login");
+                });
+            } else {
+                btnLogin.setBackground(new Color(153,0,153));
+                btnLogin.setText("Log in");
+                LineBorder redborder = new LineBorder(Color.red, 2, true);
+                userField.setBorder(redborder);
+                passField.setBorder(redborder);
+                errorText.setText("Username atau password salah. Coba lagi");
             }
-        });
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", 0);
+        }
+
     }
 
     private void passFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passFieldKeyReleased
@@ -240,7 +233,6 @@ public class loginDialog extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel loginpage;
     private javax.swing.JPasswordField passField;
     private javax.swing.JTextField userField;
