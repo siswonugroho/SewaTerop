@@ -574,7 +574,6 @@ public class Main extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelSewaan.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tabelSewaan.setGridColor(new java.awt.Color(204, 204, 204));
         tabelSewaan.setRowHeight(22);
         tabelSewaan.setShowGrid(true);
