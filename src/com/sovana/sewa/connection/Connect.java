@@ -21,7 +21,6 @@ public class Connect {
             mysqlconfig=DriverManager.getConnection(url, user, pass);            
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Gagal terhubung ke database:\n"+e.getMessage(), "Error", 0); //perintah menampilkan error pada koneksi
-            System.exit(0);
         }
         return mysqlconfig;
     }    
