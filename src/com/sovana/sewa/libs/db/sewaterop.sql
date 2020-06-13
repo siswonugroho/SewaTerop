@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2020 at 11:09 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.10
+-- Waktu pembuatan: 13 Jun 2020 pada 05.59
+-- Versi server: 10.4.8-MariaDB
+-- Versi PHP: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -35,7 +35,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`username`, `password`, `accesslevel`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `admin` (`username`, `password`, `accesslevel`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barang`
+-- Struktur dari tabel `barang`
 --
 
 CREATE TABLE `barang` (
@@ -55,19 +55,20 @@ CREATE TABLE `barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `barang`
+-- Dumping data untuk tabel `barang`
 --
 
 INSERT INTO `barang` (`id`, `nama_barang`, `harga`, `status`) VALUES
 (1, 'Tenda', 30000, 'Habis'),
 (2, 'Kursi', 20000, 'Tersedia'),
 (3, 'Karangan bunga', 20000, 'Tersedia'),
-(4, 'Panggung', 50000, 'Tersedia');
+(4, 'Panggung', 50000, 'Tersedia'),
+(5, 'Kebaya', 20000, 'Tersedia');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pembayaran`
+-- Struktur dari tabel `pembayaran`
 --
 
 CREATE TABLE `pembayaran` (
@@ -86,24 +87,20 @@ CREATE TABLE `pembayaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pembayaran`
+-- Dumping data untuk tabel `pembayaran`
 --
 
 INSERT INTO `pembayaran` (`id`, `tgl_sewa`, `tgl_kembali`, `nama_penyewa`, `barang_sewaan`, `jumlah`, `harga_satuan`, `alamat`, `telp`, `total_biaya`, `jumlah_bayar`, `sisa`) VALUES
-(1, '1970-01-01', '1970-01-01', 'Dika', 'Meja', 5, 15000, 'Indonesia', '082352352', 75000, 10000, -65000),
-(2, '1970-01-01', '1970-01-01', 'Dimas', 'Tenda', 3, 30000, 'Mojorejo', '08432525', 90000, 130000, 40000),
-(3, '2020-06-02', '2020-06-08', 'Dilan', 'Karangan bunga', 1, 20000, 'Bandung', '0853463', 20000, 30000, 10000),
-(4, '1970-01-01', '2020-06-08', 'Della', 'Kursi', 100, 20000, 'Jomblang', '0814441', 2000000, 3000000, 1000000),
-(5, '1970-01-01', '2020-06-08', 'Achmad', 'Tenda', 2, 30000, 'Kawedanan', '08536363', 60000, 100000, 40000),
-(6, '2020-04-14', '2020-06-09', 'Denny', 'Karangan bunga', 4, 20000, 'Selorejo', '08452525', 80000, 100000, 20000),
-(7, '2020-06-07', '2020-06-09', 'Agus', 'Meja', 4, 24000, 'Selorejo', '0841525325', 96000, 100000, 4000),
-(8, '2020-06-23', '2020-06-11', 'Sardi', 'Kursi', 20, 20000, 'Bendo', '0843155', 400000, 500000, 100000),
-(9, '2020-06-17', '2020-06-09', 'Ayudi', 'Kursi', 10, 20000, 'Bogor', '082424432', 200000, 300000, 100000);
+(1, '1970-01-01', '2020-06-08', 'Achmad', 'Tenda', 2, 30000, 'Kawedanan', '08536363', 60000, 100000, 40000),
+(2, '2020-06-07', '2020-06-09', 'Agus', 'Meja', 4, 24000, 'Selorejo', '0841525325', 96000, 100000, 4000),
+(3, '2020-06-23', '2020-06-11', 'Sardi', 'Kursi', 20, 20000, 'Bendo', '0843155', 400000, 500000, 100000),
+(4, '2020-06-17', '2020-06-09', 'Ayudi', 'Kursi', 10, 20000, 'Bogor', '082424432', 200000, 300000, 100000),
+(5, '2020-05-11', '2020-06-08', 'Joni Iskandar', 'Kursi', 10, 20000, 'Indonesia', '02143532', 200000, 300000, 100000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sewaan`
+-- Struktur dari tabel `sewaan`
 --
 
 CREATE TABLE `sewaan` (
@@ -117,56 +114,58 @@ CREATE TABLE `sewaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `sewaan`
+-- Dumping data untuk tabel `sewaan`
 --
 
 INSERT INTO `sewaan` (`id`, `tanggal`, `nama`, `barang_sewaan`, `jumlah`, `alamat`, `telp`) VALUES
-(1, '2020-05-11', 'Joni Iskandar', 'Kursi', 10, 'Indonesia', '02143532'),
-(2, '2020-04-22', 'Surya', 'Karangan bunga', 4, 'Bandung', '0863673');
+(1, '2020-04-22', 'Surya', 'Karangan bunga', 4, 'Bandung', '0863673'),
+(2, '2020-06-10', 'Jarmi', 'Tenda', 3, 'Bogem', '0886453'),
+(3, '2020-06-11', 'Tora', 'Panggung', 1, 'Jakarta', '083121'),
+(4, '2020-06-12', 'Dendy', 'Kursi', 10, 'Sidorejo', '082355');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `barang`
+-- Indeks untuk tabel `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pembayaran`
+-- Indeks untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sewaan`
+-- Indeks untuk tabel `sewaan`
 --
 ALTER TABLE `sewaan`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `barang`
+-- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `sewaan`
+--
+ALTER TABLE `sewaan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `pembayaran`
---
-ALTER TABLE `pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `sewaan`
---
-ALTER TABLE `sewaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
