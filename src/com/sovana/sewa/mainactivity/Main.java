@@ -1532,14 +1532,8 @@ public class Main extends javax.swing.JFrame {
         try {
             printPreviewDialog pvd = new printPreviewDialog(this, true);
             int baris = tabelRiwayat.getSelectedRow();
-            SimpleDateFormat clockformatter = new SimpleDateFormat("dd MMM yyyy hh:mm:ss");
-            String dateNow = clockformatter.format(new Date());
-            pvd.setLaporanText("\n\t------------------------------------------\n"
-                    + String.format("\t%-15s\t%n", "SEWA TEROP H. NASHIR")
-                    + String.format("\t%-15s\t%n", "Bukti Pembayaran")
-                    + String.format("\t%s %-15s\t%n", "Tanggal", dateNow)
-                    + "\t------------------------------------------\t\n"
-                    + String.format("\t%-15s: %-15s%n", "Nama", tabelRiwayat.getValueAt(baris, 3))
+            pvd.setLaporanText(
+                    String.format("\t%-15s: %-15s%n", "Nama", tabelRiwayat.getValueAt(baris, 3))
                     + String.format("\t%-15s: %-15s%n", "Tgl sewa", tabelRiwayat.getValueAt(baris, 1))
                     + String.format("\t%-15s: %-15s%n", "Tgl kembali", tabelRiwayat.getValueAt(baris, 2))
                     + String.format("\t%-15s: %s buah %-15s%n", "Barang sewaan", tabelRiwayat.getValueAt(baris, 5), tabelRiwayat.getValueAt(baris, 4))
@@ -1547,9 +1541,9 @@ public class Main extends javax.swing.JFrame {
                     + String.format("\t%-15s: %-15s%n", "Telp penyewa", tabelRiwayat.getValueAt(baris, 8))
                     + "\t------------------------------------------\n"
                     + String.format("\t%-18s: Rp%,d%-17s%n", "Harga satuan", Integer.valueOf((String) tabelRiwayat.getValueAt(baris, 6)), ",-")
-                    + String.format("\t%-18s: Rp%,d%-17s%n", "Total biaya", Integer.valueOf((String) tabelRiwayat.getValueAt(baris, 9)), ",-")
-                    + String.format("\t%-18s: Rp%,d%-17s%n", "Jumlah bayar", Integer.valueOf((String) tabelRiwayat.getValueAt(baris, 10)), ",-")
-                    + String.format("\t%-18s: Rp%,d%-17s%n%n", "Kembalian/kurang*", Integer.valueOf((String) tabelRiwayat.getValueAt(baris, 11)), ",-")
+                    + String.format("\t%-18s: Rp%,d%-17s%n", "Total", Integer.valueOf((String) tabelRiwayat.getValueAt(baris, 9)), ",-")
+                    + String.format("\t%-18s: Rp%,d%-17s%n", "Uang", Integer.valueOf((String) tabelRiwayat.getValueAt(baris, 10)), ",-")
+                    + String.format("\t%-18s: Rp%,d%-17s%n%n", "Kembali/kurang*", Integer.valueOf((String) tabelRiwayat.getValueAt(baris, 11)), ",-")
                     + String.format("\t%-18s\t%n", "*Coret yang tidak perlu")
             );
             pvd.setVisible(true);

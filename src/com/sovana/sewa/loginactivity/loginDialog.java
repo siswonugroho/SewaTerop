@@ -5,9 +5,12 @@
  */
 package com.sovana.sewa.loginactivity;
 
+import com.sovana.sewa.connection.Connect;
 import com.sovana.sewa.connection.Session;
 import com.sovana.sewa.mainactivity.Main;
+import com.sun.jdi.InvocationException;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,6 +31,7 @@ public class loginDialog extends javax.swing.JFrame {
      */
     public loginDialog() {
         initComponents();
+//        Connect.startMysql();
     }
 
     /**
@@ -154,8 +158,18 @@ public class loginDialog extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void toggleLoginTextState(){
+        if (btnLogin.getText().equals("Login")){
+            btnLogin.setText("Sedang login...");
+            
+        } else{
+            btnLogin.setText("Login");
+        }
+    }
+    
+    
     private void goLogin() {
-        btnLogin.setText("Sedang login...");
+        toggleLoginTextState();
         EventQueue.invokeLater(() -> {
             try {
                 String username = null, level = null;
@@ -163,33 +177,29 @@ public class loginDialog extends javax.swing.JFrame {
                 String encodePass = Base64.getEncoder().encodeToString(passValue.getBytes());
                 String sql = "select * from admin where username = ? and password = ?";
                 Connection conn = (Connection) com.sovana.sewa.connection.Connect.configDB();
-
                 PreparedStatement stm = conn.prepareStatement(sql);
                 stm.setString(1, userField.getText());
                 stm.setString(2, encodePass);
                 ResultSet res = stm.executeQuery();
-
                 while (res.next()) {
                     username = res.getString("username");
                     level = res.getString("accesslevel");
-                }
-                res.last();
-                
+                }   res.last();
                 if (res.getRow() == 1) {
                     Session.setUsername(username);
                     Session.setLevel(level);
                     new Main().setVisible(true);
                     dispose();
                 } else {
-                    btnLogin.setText("Login");
+                    toggleLoginTextState();
                     LineBorder redborder = new LineBorder(Color.red, 2, true);
                     userField.setBorder(redborder);
                     passField.setBorder(redborder);
                     errorText.setText("Username atau password salah. Coba lagi");
                 }
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(this, e.getMessage(), "Error", 0);
-                btnLogin.setText("Login");
+            } catch (SQLException | NullPointerException e) {
+                JOptionPane.showMessageDialog(this, "Terjadi kesalahan:\n" + e.getMessage(), "Error", 0);
+                toggleLoginTextState();
             }
         });
     }
