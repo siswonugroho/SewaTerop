@@ -18,11 +18,12 @@ import com.sovana.sewa.connection.Session;
 import com.sovana.sewa.connection.Connect;
 import com.sovana.sewa.dialogactivity.printPreviewDialog;
 import java.awt.HeadlessException;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -44,6 +45,7 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         try {
+            setIconImage(ImageIO.read(getClass().getResource("/com/sovana/sewa/images/ms-icon-310x310.png")));
             Connection conn = (Connection) Connect.configDB();
             String sql = "select * from admin where username = ?";
 
@@ -54,7 +56,7 @@ public class Main extends javax.swing.JFrame {
                 btnAccount.setText(username + " (" + level + ")");
             }
 
-        } catch (SQLException ex) {
+        } catch (SQLException | IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         showSummaryCount();
@@ -1023,7 +1025,7 @@ public class Main extends javax.swing.JFrame {
         }
     }
 
-    public void showSummaryCount() {
+    public final void showSummaryCount() {
         numberBarang.setText("...");
         numberSewa.setText("...");
         numberBlmLunas.setText("...");
