@@ -5,18 +5,17 @@
  */
 package com.sovana.sewa.loginactivity;
 
-import com.sovana.sewa.connection.Connect;
 import com.sovana.sewa.connection.Session;
 import com.sovana.sewa.mainactivity.Main;
-import com.sun.jdi.InvocationException;
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.EventQueue;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Base64;
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 
@@ -31,6 +30,11 @@ public class loginDialog extends javax.swing.JFrame {
      */
     public loginDialog() {
         initComponents();
+        try {
+            setIconImage(ImageIO.read(getClass().getResource("/com/sovana/sewa/images/ms-icon-310x310.png")));
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan:\n" + e.getMessage(), "Error", 0);
+        }
 //        Connect.startMysql();
     }
 
