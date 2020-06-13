@@ -6,6 +6,8 @@
 package com.sovana.sewa.dialogactivity;
 
 import java.awt.print.PrinterException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -38,19 +40,25 @@ public class printPreviewDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Preview Laporan");
+        setName("Form"); // NOI18N
+
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
 
         printArea.setEditable(false);
         printArea.setColumns(20);
         printArea.setFont(new java.awt.Font("Consolas", 0, 13)); // NOI18N
         printArea.setLineWrap(true);
         printArea.setRows(5);
+        printArea.setName("printArea"); // NOI18N
         jScrollPane1.setViewportView(printArea);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Preview Laporan");
+        jLabel1.setName("jLabel1"); // NOI18N
 
         printBtn.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         printBtn.setText("Cetak");
+        printBtn.setName("printBtn"); // NOI18N
         printBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 printBtnActionPerformed(evt);
@@ -102,11 +110,18 @@ public class printPreviewDialog extends javax.swing.JDialog {
                 printBtn.setText("Cetak");
             }
         });
-        
+
     }//GEN-LAST:event_printBtnActionPerformed
 
     public void setLaporanText(String text) {
-        printArea.setText(text);
+        SimpleDateFormat clockformatter = new SimpleDateFormat("dd MMM yyyy hh:mm:ss");
+        String dateNow = clockformatter.format(new Date());
+        printArea.setText("\n\t------------------------------------------\n"
+                + String.format("\t%-15s\t%n", "SEWA TEROP H. NASHIR")
+                + String.format("\t%-15s\t%n", "Bukti Pembayaran")
+                + String.format("\t%s %-15s\t%n", "Tanggal", dateNow)
+                + "\t------------------------------------------\t\n"
+                + text);
     }
 
     /**
