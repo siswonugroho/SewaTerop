@@ -15,7 +15,6 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Locale;
 import javax.swing.ImageIcon;
-import java.awt.Image;
 import javax.swing.JOptionPane;
 
 /**
@@ -250,7 +249,7 @@ public class tambahSewaDialog extends javax.swing.JDialog {
 
     private void populateBarangItem() {
         try {
-            String sql = "select nama_barang from barang";
+            String sql = "select nama_barang from barang where status='Tersedia'";
             Connection conn = (Connection) Connect.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);

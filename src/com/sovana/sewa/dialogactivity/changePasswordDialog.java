@@ -58,20 +58,20 @@ public class changePasswordDialog extends javax.swing.JDialog {
         oldPass.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         oldPass.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel3.setText("Password saat ini");
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Ubah password");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         newPass.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         newPass.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel4.setText("Password baru");
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel5.setText("Ketik ulang password baru");
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         newRepass.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         newRepass.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
@@ -79,11 +79,12 @@ public class changePasswordDialog extends javax.swing.JDialog {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.GridLayout(1, 0, 3, 0));
 
-        btnLogin1.setText("Batal");
-        btnLogin1.setBorderPainted(false);
-        btnLogin1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogin1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         btnLogin1.setForeground(new java.awt.Color(255, 51, 51));
+        btnLogin1.setText("Batal");
+        btnLogin1.setBorderPainted(false);
+        btnLogin1.setContentAreaFilled(false);
+        btnLogin1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogin1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogin1ActionPerformed(evt);
@@ -91,12 +92,12 @@ public class changePasswordDialog extends javax.swing.JDialog {
         });
         jPanel2.add(btnLogin1);
 
-        btnLogin.setText("Ubah");
         btnLogin.setBackground(new java.awt.Color(0, 102, 204));
-        btnLogin.setBorderPainted(false);
-        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setText("Ubah");
+        btnLogin.setBorderPainted(false);
+        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);

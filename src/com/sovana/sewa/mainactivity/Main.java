@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import com.sovana.sewa.connection.Session;
 import com.sovana.sewa.connection.Connect;
+import com.sovana.sewa.dialogactivity.ManageAdminDialog;
 import com.sovana.sewa.dialogactivity.printPreviewDialog;
 import java.awt.HeadlessException;
 import java.io.IOException;
@@ -72,6 +73,7 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         useroptions = new javax.swing.JPopupMenu();
+        menuManageAdmin = new javax.swing.JMenuItem();
         menuEditAcc = new javax.swing.JMenuItem();
         menuLogout = new javax.swing.JMenuItem();
         jFileChooser1 = new javax.swing.JFileChooser();
@@ -136,6 +138,14 @@ public class Main extends javax.swing.JFrame {
         useroptions.setBackground(new java.awt.Color(51, 51, 51));
         useroptions.setForeground(new java.awt.Color(255, 255, 255));
         useroptions.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
+
+        menuManageAdmin.setText("Kelola admin");
+        menuManageAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuManageAdminActionPerformed(evt);
+            }
+        });
+        useroptions.add(menuManageAdmin);
 
         menuEditAcc.setText("Ubah password");
         menuEditAcc.addActionListener(new java.awt.event.ActionListener() {
@@ -410,30 +420,30 @@ public class Main extends javax.swing.JFrame {
             .addGroup(mainpageLayout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addGroup(mainpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainpageLayout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(mainpageLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(mainpageLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainpageLayout.createSequentialGroup()
                         .addGroup(mainpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
                             .addGroup(mainpageLayout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnAccount)))
-                        .addGap(70, 70, 70))))
+                        .addGap(70, 70, 70))
+                    .addGroup(mainpageLayout.createSequentialGroup()
+                        .addGroup(mainpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(mainpageLayout.createSequentialGroup()
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainpageLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton6)
-                .addGap(19, 19, 19))
+                .addGap(15, 15, 15))
         );
         mainpageLayout.setVerticalGroup(
             mainpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainpageLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainpageLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(mainpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -446,9 +456,9 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(mainpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton6)
-                .addGap(14, 14, 14))
+                .addGap(18, 18, 18))
         );
 
         getContentPane().add(mainpage, "mainpage");
@@ -848,7 +858,7 @@ public class Main extends javax.swing.JFrame {
         riwayatCetak.setBackground(new java.awt.Color(0, 153, 255));
         riwayatCetak.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         riwayatCetak.setForeground(new java.awt.Color(255, 255, 255));
-        riwayatCetak.setText("Cetak...");
+        riwayatCetak.setText("Cetak struk...");
         riwayatCetak.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         riwayatCetak.setBorderPainted(false);
         riwayatCetak.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1010,6 +1020,14 @@ public class Main extends javax.swing.JFrame {
         CardLayout cl = (CardLayout) (getContentPane().getLayout());
         cl.show(getContentPane(), page);
     }
+    
+    public void toggleManageAdminMenu(){
+        if (Session.getLevel().equals("owner")){
+            menuManageAdmin.setVisible(true);
+        } else{
+            menuManageAdmin.setVisible(false);
+        }
+    }
 
     public void deleteSelectedRow() {
         try {
@@ -1037,7 +1055,7 @@ public class Main extends javax.swing.JFrame {
                 while (countSewa.next()) {
                     numberSewa.setText(countSewa.getString(1));
                 }
-                ResultSet countBarang = stm.executeQuery("select count(id) from barang");
+                ResultSet countBarang = stm.executeQuery("select count(id) from barang where status='Tersedia'");
                 while (countBarang.next()) {
                     numberBarang.setText(countBarang.getString(1));
                 }
@@ -1559,6 +1577,11 @@ public class Main extends javax.swing.JFrame {
         new com.sovana.sewa.dialogactivity.AboutDialog(this, true).setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void menuManageAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuManageAdminActionPerformed
+        // TODO add your handling code here:
+        new ManageAdminDialog(this, true).setVisible(true);
+    }//GEN-LAST:event_menuManageAdminActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1633,6 +1656,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel mainpage;
     private javax.swing.JMenuItem menuEditAcc;
     private javax.swing.JMenuItem menuLogout;
+    private javax.swing.JMenuItem menuManageAdmin;
     private javax.swing.JLabel numberBarang;
     private javax.swing.JLabel numberBlmLunas;
     private javax.swing.JLabel numberSewa;

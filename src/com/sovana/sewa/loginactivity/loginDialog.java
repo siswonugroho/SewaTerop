@@ -5,11 +5,17 @@
  */
 package com.sovana.sewa.loginactivity;
 
+import java.sql.Statement;
+import com.sovana.sewa.connection.Connect;
 import com.sovana.sewa.connection.Session;
 import com.sovana.sewa.mainactivity.Main;
+import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -56,11 +62,33 @@ public class loginDialog extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         errorText = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        btnToSignup = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        signup = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        userFieldSignup = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        passFieldSignup = new javax.swing.JPasswordField();
+        btnSignup = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        repassFieldSignup = new javax.swing.JPasswordField();
+        btnToLogin = new javax.swing.JButton();
+        rejectedpage = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        btnLogin2 = new javax.swing.JButton();
+        pendingpage = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        btnLogin3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SewaTerop");
-        setPreferredSize(new java.awt.Dimension(390, 400));
-        setSize(new java.awt.Dimension(390, 400));
+        setPreferredSize(new java.awt.Dimension(390, 460));
+        setSize(new java.awt.Dimension(390, 420));
+        getContentPane().setLayout(new java.awt.CardLayout());
 
         loginpage.setBackground(new java.awt.Color(255, 255, 255));
         loginpage.setPreferredSize(new java.awt.Dimension(390, 400));
@@ -103,12 +131,41 @@ public class loginDialog extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel4.setText("untuk melanjutkan ke SewaTerop");
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0, 4, 0));
+
+        btnToSignup.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnToSignup.setForeground(new java.awt.Color(0, 102, 255));
+        btnToSignup.setText("Buat akun baru");
+        btnToSignup.setBorderPainted(false);
+        btnToSignup.setContentAreaFilled(false);
+        btnToSignup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnToSignup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnToSignupActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnToSignup);
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 102, 255));
+        jButton1.setText("Perlu bantuan?");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+
         javax.swing.GroupLayout loginpageLayout = new javax.swing.GroupLayout(loginpage);
         loginpage.setLayout(loginpageLayout);
         loginpageLayout.setHorizontalGroup(
             loginpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginpageLayout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(loginpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel2)
@@ -119,7 +176,11 @@ public class loginDialog extends javax.swing.JFrame {
                         .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(errorText))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginpageLayout.createSequentialGroup()
+                .addContainerGap(76, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         loginpageLayout.setVerticalGroup(
             loginpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,40 +199,276 @@ public class loginDialog extends javax.swing.JFrame {
                 .addComponent(passField, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(errorText)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(loginpage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        getContentPane().add(loginpage, "loginpage");
+
+        signup.setBackground(new java.awt.Color(255, 255, 255));
+        signup.setPreferredSize(new java.awt.Dimension(390, 400));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 25)); // NOI18N
+        jLabel5.setText("Buat akun admin");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel6.setLabelFor(userFieldSignup);
+        jLabel6.setText("Username");
+
+        userFieldSignup.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        userFieldSignup.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
+        userFieldSignup.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                userFieldSignupFocusLost(evt);
+            }
+        });
+        userFieldSignup.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                userFieldSignupKeyReleased(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel7.setLabelFor(passFieldSignup);
+        jLabel7.setText("Password");
+
+        passFieldSignup.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        passFieldSignup.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
+        passFieldSignup.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                passFieldSignupKeyReleased(evt);
+            }
+        });
+
+        btnSignup.setBackground(new java.awt.Color(202, 58, 138));
+        btnSignup.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnSignup.setForeground(new java.awt.Color(255, 255, 255));
+        btnSignup.setText("Buat akun");
+        btnSignup.setBorderPainted(false);
+        btnSignup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSignup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignupActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel9.setLabelFor(repassFieldSignup);
+        jLabel9.setText("Ketik ulang password");
+
+        repassFieldSignup.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        repassFieldSignup.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
+        repassFieldSignup.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                repassFieldSignupKeyReleased(evt);
+            }
+        });
+
+        btnToLogin.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnToLogin.setForeground(new java.awt.Color(0, 102, 255));
+        btnToLogin.setText("Kembali ke Login");
+        btnToLogin.setBorderPainted(false);
+        btnToLogin.setContentAreaFilled(false);
+        btnToLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnToLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnToLoginActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout signupLayout = new javax.swing.GroupLayout(signup);
+        signup.setLayout(signupLayout);
+        signupLayout.setHorizontalGroup(
+            signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(signupLayout.createSequentialGroup()
+                .addContainerGap(61, Short.MAX_VALUE)
+                .addGroup(signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7)
+                    .addComponent(userFieldSignup)
+                    .addComponent(passFieldSignup)
+                    .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(repassFieldSignup))
+                .addContainerGap(61, Short.MAX_VALUE))
+            .addGroup(signupLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnToLogin)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 406, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(loginpage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE))
+        signupLayout.setVerticalGroup(
+            signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(signupLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(userFieldSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(passFieldSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(repassFieldSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(btnToLogin)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
+
+        getContentPane().add(signup, "signup");
+
+        rejectedpage.setBackground(new java.awt.Color(255, 255, 255));
+        rejectedpage.setPreferredSize(new java.awt.Dimension(390, 400));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jLabel10.setText("Akses akun ditolak");
+        jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel11.setText("<html><p style=\"text-align: center; word-wrap: break-word;\">Pemilik telah melarang akses akun ini ke aplikasi. Untuk membuka akses, hubungi pemilik.</p>");
+        jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        btnLogin2.setBackground(new java.awt.Color(76, 133, 228));
+        btnLogin2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnLogin2.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin2.setText("Kembali ke Login");
+        btnLogin2.setBorderPainted(false);
+        btnLogin2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogin2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout rejectedpageLayout = new javax.swing.GroupLayout(rejectedpage);
+        rejectedpage.setLayout(rejectedpageLayout);
+        rejectedpageLayout.setHorizontalGroup(
+            rejectedpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rejectedpageLayout.createSequentialGroup()
+                .addContainerGap(48, Short.MAX_VALUE)
+                .addGroup(rejectedpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnLogin2, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+        rejectedpageLayout.setVerticalGroup(
+            rejectedpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rejectedpageLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addComponent(btnLogin2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(rejectedpage, "rejectedpage");
+
+        pendingpage.setBackground(new java.awt.Color(255, 255, 255));
+        pendingpage.setPreferredSize(new java.awt.Dimension(390, 400));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jLabel12.setText("Menunggu konfirmasi pemilik");
+        jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel13.setText("<html><p style=\"text-align: center; word-wrap: break-word;\">Akun Anda sedang ditinjau oleh pemilik. Jika pemilik menyetujui akun ini, Anda bisa login ke aplikasi menggunakan akun ini.</p>");
+        jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        btnLogin3.setBackground(new java.awt.Color(76, 133, 228));
+        btnLogin3.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnLogin3.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin3.setText("Kembali ke Login");
+        btnLogin3.setBorderPainted(false);
+        btnLogin3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogin3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pendingpageLayout = new javax.swing.GroupLayout(pendingpage);
+        pendingpage.setLayout(pendingpageLayout);
+        pendingpageLayout.setHorizontalGroup(
+            pendingpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pendingpageLayout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addGroup(pendingpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(btnLogin3, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        pendingpageLayout.setVerticalGroup(
+            pendingpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pendingpageLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addComponent(btnLogin3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(pendingpage, "pendingpage");
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void toggleLoginTextState(){
-        if (btnLogin.getText().equals("Login")){
+    private void goToPage(String page) {
+        CardLayout cl = (CardLayout) (getContentPane().getLayout());
+        cl.show(getContentPane(), page);
+    }
+
+    private LineBorder redborder = new LineBorder(Color.red, 2, true);
+    private LineBorder defaultborder = new LineBorder(new Color(204, 204, 204), 2, true);
+    private LineBorder greenborder = new LineBorder(new Color(6, 167, 58), 2, true);
+
+    public void toggleLoginTextState() {
+        if (btnLogin.getText().equals("Login")) {
             btnLogin.setText("Sedang login...");
-            
-        } else{
+
+        } else {
             btnLogin.setText("Login");
         }
     }
-    
-    
+
+    private void goSignup() {
+        try {
+            String passValue = String.valueOf(passFieldSignup.getPassword());
+            String repassValue = String.valueOf(repassFieldSignup.getPassword());
+            String encodePass = Base64.getEncoder().encodeToString(passValue.getBytes());
+            String sql = String.format("insert into admin values('%s','%s','%s')", userFieldSignup.getText(), encodePass, "pending");
+            Connection conn = (Connection) Connect.configDB();
+            PreparedStatement pst = conn.prepareStatement(sql);
+
+            if (passValue.equals(repassValue) && !userFieldSignup.getText().isEmpty()) {
+                pst.execute();
+                goToPage("pendingpage");
+            } else if (userFieldSignup.getText().isEmpty() || passValue.isEmpty() || repassValue.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Harap isi semua kolom.", "Peringatan", 2);
+            } else if (!passValue.equals(repassValue)) {
+                JOptionPane.showMessageDialog(this, "Kedua kolom password tidak cocok. Coba lagi.", "Peringatan", 2);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Gagal membuat akun:\n" + e.getMessage(), "Error", 0);
+        }
+    }
+
     private void goLogin() {
         toggleLoginTextState();
         EventQueue.invokeLater(() -> {
@@ -180,7 +477,7 @@ public class loginDialog extends javax.swing.JFrame {
                 String passValue = String.valueOf(passField.getPassword());
                 String encodePass = Base64.getEncoder().encodeToString(passValue.getBytes());
                 String sql = "select * from admin where username = ? and password = ?";
-                Connection conn = (Connection) com.sovana.sewa.connection.Connect.configDB();
+                Connection conn = (Connection) Connect.configDB();
                 PreparedStatement stm = conn.prepareStatement(sql);
                 stm.setString(1, userField.getText());
                 stm.setString(2, encodePass);
@@ -188,15 +485,31 @@ public class loginDialog extends javax.swing.JFrame {
                 while (res.next()) {
                     username = res.getString("username");
                     level = res.getString("accesslevel");
-                }   res.last();
+                }
+                res.last();
                 if (res.getRow() == 1) {
-                    Session.setUsername(username);
-                    Session.setLevel(level);
-                    new Main().setVisible(true);
-                    dispose();
+                    switch (res.getString(3)) {
+                        case "admin":
+                        case "owner":
+                            Session.setUsername(username);
+                            Session.setLevel(level);
+                            Main newMain = new Main();
+                            newMain.toggleManageAdminMenu();
+                            newMain.setVisible(true);
+                            dispose();
+                            break;
+                        case "pending":
+                            goToPage("pendingpage");
+                            break;
+                        case "rejected":
+                            goToPage("rejectedpage");
+                            break;
+                    }
+                    toggleLoginTextState();
+
                 } else {
                     toggleLoginTextState();
-                    LineBorder redborder = new LineBorder(Color.red, 2, true);
+
                     userField.setBorder(redborder);
                     passField.setBorder(redborder);
                     errorText.setText("Username atau password salah. Coba lagi");
@@ -217,6 +530,69 @@ public class loginDialog extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         goLogin();
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void passFieldSignupKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passFieldSignupKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passFieldSignupKeyReleased
+
+    private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
+        goSignup();
+    }//GEN-LAST:event_btnSignupActionPerformed
+
+    private void repassFieldSignupKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_repassFieldSignupKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_repassFieldSignupKeyReleased
+
+    private void btnLogin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin2ActionPerformed
+        // TODO add your handling code here:
+        goToPage("loginpage");
+    }//GEN-LAST:event_btnLogin2ActionPerformed
+
+    private void btnLogin3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin3ActionPerformed
+        goToPage("loginpage");
+    }//GEN-LAST:event_btnLogin3ActionPerformed
+
+    private void btnToSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToSignupActionPerformed
+        goToPage("signup");
+    }//GEN-LAST:event_btnToSignupActionPerformed
+
+    private void userFieldSignupFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userFieldSignupFocusLost
+
+    }//GEN-LAST:event_userFieldSignupFocusLost
+
+    private void btnToLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToLoginActionPerformed
+        goToPage("loginpage");
+    }//GEN-LAST:event_btnToLoginActionPerformed
+
+    private void userFieldSignupKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userFieldSignupKeyReleased
+        // TODO add your handling code here:
+//        try {
+//            String checkusername = String.format("select username from admin where username = '%s'", userFieldSignup.getText());
+//            Connection conn = (Connection) Connect.configDB();
+//            Statement checkuser = conn.createStatement();
+//            ResultSet rscheck = checkuser.executeQuery(checkusername);
+//            
+//                if (userFieldSignup.getText().equals(rscheck.getRow())) {
+//                    userFieldSignup.setBorder(redborder);
+//                    jLabel6.setText("Username ini sudah ada");
+//                } else {
+//                    userFieldSignup.setBorder(greenborder);
+//                    jLabel6.setText("Username ini tersedia");
+//                }
+//            
+//        } catch (SQLException e) {
+//            jLabel6.setText("Kesalahan dalam memeriksa username");
+//            jLabel6.setForeground(Color.red);
+//        }
+    }//GEN-LAST:event_userFieldSignupKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            Desktop.getDesktop().mail(new URI("mailto:vana.hantoro7@gmail.com"));
+        } catch (IOException | URISyntaxException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", 0);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,13 +626,34 @@ public class loginDialog extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnLogin2;
+    private javax.swing.JButton btnLogin3;
+    private javax.swing.JButton btnSignup;
+    private javax.swing.JButton btnToLogin;
+    private javax.swing.JButton btnToSignup;
     private javax.swing.JLabel errorText;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel loginpage;
     private javax.swing.JPasswordField passField;
+    private javax.swing.JPasswordField passFieldSignup;
+    private javax.swing.JPanel pendingpage;
+    private javax.swing.JPanel rejectedpage;
+    private javax.swing.JPasswordField repassFieldSignup;
+    private javax.swing.JPanel signup;
     private javax.swing.JTextField userField;
+    private javax.swing.JTextField userFieldSignup;
     // End of variables declaration//GEN-END:variables
 }
