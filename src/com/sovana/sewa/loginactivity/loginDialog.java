@@ -5,7 +5,6 @@
  */
 package com.sovana.sewa.loginactivity;
 
-import java.sql.Statement;
 import com.sovana.sewa.connection.Connect;
 import com.sovana.sewa.connection.Session;
 import com.sovana.sewa.mainactivity.Main;
@@ -291,14 +290,11 @@ public class loginDialog extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(userFieldSignup)
                     .addComponent(passFieldSignup)
-                    .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSignup, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
                     .addComponent(jLabel9)
-                    .addComponent(repassFieldSignup))
+                    .addComponent(repassFieldSignup)
+                    .addComponent(btnToLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(61, Short.MAX_VALUE))
-            .addGroup(signupLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnToLogin)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         signupLayout.setVerticalGroup(
             signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,13 +360,13 @@ public class loginDialog extends javax.swing.JFrame {
         rejectedpageLayout.setVerticalGroup(
             rejectedpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rejectedpageLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
+                .addGap(79, 79, 79)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addComponent(btnLogin2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         getContentPane().add(rejectedpage, "rejectedpage");
@@ -413,13 +409,13 @@ public class loginDialog extends javax.swing.JFrame {
         pendingpageLayout.setVerticalGroup(
             pendingpageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pendingpageLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
+                .addGap(78, 78, 78)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addComponent(btnLogin3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         getContentPane().add(pendingpage, "pendingpage");
@@ -435,7 +431,6 @@ public class loginDialog extends javax.swing.JFrame {
 
     private LineBorder redborder = new LineBorder(Color.red, 2, true);
     private LineBorder defaultborder = new LineBorder(new Color(204, 204, 204), 2, true);
-    private LineBorder greenborder = new LineBorder(new Color(6, 167, 58), 2, true);
 
     public void toggleLoginTextState() {
         if (btnLogin.getText().equals("Login")) {
@@ -444,6 +439,12 @@ public class loginDialog extends javax.swing.JFrame {
         } else {
             btnLogin.setText("Login");
         }
+    }
+
+    private void toggleWrongLoginFeedback(LineBorder userfield, LineBorder passfield, String errortext) {
+        userField.setBorder(userfield);
+        passField.setBorder(passfield);
+        errorText.setText(errortext);
     }
 
     private void goSignup() {
@@ -509,10 +510,7 @@ public class loginDialog extends javax.swing.JFrame {
 
                 } else {
                     toggleLoginTextState();
-
-                    userField.setBorder(redborder);
-                    passField.setBorder(redborder);
-                    errorText.setText("Username atau password salah. Coba lagi");
+                    toggleWrongLoginFeedback(redborder, redborder, "Username atau password salah. Coba lagi.");
                 }
             } catch (SQLException | NullPointerException e) {
                 JOptionPane.showMessageDialog(this, "Terjadi kesalahan:\n" + e.getMessage(), "Error", 0);
@@ -545,10 +543,12 @@ public class loginDialog extends javax.swing.JFrame {
 
     private void btnLogin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin2ActionPerformed
         // TODO add your handling code here:
+        toggleWrongLoginFeedback(defaultborder, defaultborder, null);
         goToPage("loginpage");
     }//GEN-LAST:event_btnLogin2ActionPerformed
 
     private void btnLogin3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin3ActionPerformed
+        toggleWrongLoginFeedback(defaultborder, defaultborder, null);
         goToPage("loginpage");
     }//GEN-LAST:event_btnLogin3ActionPerformed
 
@@ -561,6 +561,7 @@ public class loginDialog extends javax.swing.JFrame {
     }//GEN-LAST:event_userFieldSignupFocusLost
 
     private void btnToLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToLoginActionPerformed
+        toggleWrongLoginFeedback(defaultborder, defaultborder, null);
         goToPage("loginpage");
     }//GEN-LAST:event_btnToLoginActionPerformed
 
