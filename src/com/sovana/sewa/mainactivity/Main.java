@@ -526,10 +526,11 @@ public class Main extends javax.swing.JFrame {
         });
         jPanel5.add(bayarBtn);
 
+        sewaEdit.setBackground(new java.awt.Color(239, 239, 119));
         sewaEdit.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         sewaEdit.setText("Edit");
         sewaEdit.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        sewaEdit.setContentAreaFilled(false);
+        sewaEdit.setBorderPainted(false);
         sewaEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sewaEdit.setFocusPainted(false);
         sewaEdit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -548,11 +549,12 @@ public class Main extends javax.swing.JFrame {
         });
         jPanel5.add(sewaEdit);
 
+        sewaHapus.setBackground(new java.awt.Color(255, 204, 204));
         sewaHapus.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         sewaHapus.setForeground(new java.awt.Color(204, 0, 0));
         sewaHapus.setText("Hapus");
         sewaHapus.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        sewaHapus.setContentAreaFilled(false);
+        sewaHapus.setBorderPainted(false);
         sewaHapus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sewaHapus.setFocusPainted(false);
         sewaHapus.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -710,10 +712,11 @@ public class Main extends javax.swing.JFrame {
         jPanel6.add(barangTambah);
         jPanel6.add(filler2);
 
+        barangEdit.setBackground(new java.awt.Color(239, 239, 119));
         barangEdit.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         barangEdit.setText("Edit");
         barangEdit.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        barangEdit.setContentAreaFilled(false);
+        barangEdit.setBorderPainted(false);
         barangEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         barangEdit.setFocusPainted(false);
         barangEdit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -732,11 +735,12 @@ public class Main extends javax.swing.JFrame {
         });
         jPanel6.add(barangEdit);
 
+        barangHapus.setBackground(new java.awt.Color(255, 204, 204));
         barangHapus.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         barangHapus.setForeground(new java.awt.Color(204, 0, 0));
         barangHapus.setText("Hapus");
         barangHapus.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        barangHapus.setContentAreaFilled(false);
+        barangHapus.setBorderPainted(false);
         barangHapus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         barangHapus.setFocusPainted(false);
         barangHapus.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -879,12 +883,12 @@ public class Main extends javax.swing.JFrame {
         });
         jPanel7.add(riwayatCetak);
 
-        riwayatHapus.setBackground(new java.awt.Color(204, 204, 204));
+        riwayatHapus.setBackground(new java.awt.Color(255, 204, 204));
         riwayatHapus.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        riwayatHapus.setForeground(new java.awt.Color(255, 51, 51));
+        riwayatHapus.setForeground(new java.awt.Color(204, 0, 0));
         riwayatHapus.setText("Hapus");
         riwayatHapus.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        riwayatHapus.setContentAreaFilled(false);
+        riwayatHapus.setBorderPainted(false);
         riwayatHapus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         riwayatHapus.setFocusPainted(false);
         riwayatHapus.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -903,12 +907,12 @@ public class Main extends javax.swing.JFrame {
         });
         jPanel7.add(riwayatHapus);
 
-        riwayatHapusAll.setBackground(new java.awt.Color(204, 204, 204));
+        riwayatHapusAll.setBackground(new java.awt.Color(255, 204, 204));
         riwayatHapusAll.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         riwayatHapusAll.setForeground(new java.awt.Color(204, 0, 0));
         riwayatHapusAll.setText("Hapus semua");
         riwayatHapusAll.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        riwayatHapusAll.setContentAreaFilled(false);
+        riwayatHapusAll.setBorderPainted(false);
         riwayatHapusAll.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         riwayatHapusAll.setFocusPainted(false);
         riwayatHapusAll.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
